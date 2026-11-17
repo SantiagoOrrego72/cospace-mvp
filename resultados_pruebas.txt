@@ -1,0 +1,30 @@
+== Pruebas de la lógica (Node.js): node --test core.test.js
+ok 1 - CP-01 Registro válido crea el usuario con la contraseña cifrada (HU-01)
+ok 2 - CP-02 Registro rechaza correo duplicado y contraseña corta (HU-01)
+ok 3 - CP-03 Inicio de sesión correcto e incorrecto (HU-02)
+ok 4 - CP-04 Catálogo muestra solo espacios activos y filtra por tipo, capacidad y texto (HU-03, HU-09)
+ok 5 - CP-05 Reserva válida calcula total y genera código (HU-05)
+ok 6 - CP-06 No permite reservar bloques ocupados (doble reserva) (HU-05)
+ok 7 - CP-07 No permite bloques no consecutivos, fuera de horario ni en el pasado (HU-05)
+ok 8 - CP-08 Horas libres excluye ocupadas y horas pasadas (HU-05)
+ok 9 - CP-09 Mis reservas separa activas e historial (HU-06)
+ok 10 - CP-10 Cancelar libera el horario y respeta el límite de 2 horas (HU-07)
+ok 11 - CP-11 Administrador crea, edita y desactiva espacios con validaciones (HU-08)
+ok 12 - CP-12 Reporte de ocupación suma horas e ingresos sin contar canceladas
+# tests 12
+# pass 12
+# fail 0
+
+== Pruebas del servidor y la base de datos (Python): python -m unittest test_servidor -v
+test_API01_pagina_y_login (test_servidor.PruebasAPI.test_API01_pagina_y_login) ...   GET /
+test_API02_usuario_no_ve_datos_de_otros (test_servidor.PruebasAPI.test_API02_usuario_no_ve_datos_de_otros) ...   POST /api/login
+test_API03_reservar_y_cancelar_por_http (test_servidor.PruebasAPI.test_API03_reservar_y_cancelar_por_http) ...   POST /api/login
+test_API04_solo_admin_gestiona_espacios (test_servidor.PruebasAPI.test_API04_solo_admin_gestiona_espacios) ...   POST /api/login
+test_API05_sin_sesion_y_archivos_protegidos (test_servidor.PruebasAPI.test_API05_sin_sesion_y_archivos_protegidos) ...   GET /api/datos
+test_BD01_esquema_y_datos_demo (test_servidor.PruebasBaseDeDatos.test_BD01_esquema_y_datos_demo) ... ok
+test_BD02_clave_guardada_con_hash_y_sal (test_servidor.PruebasBaseDeDatos.test_BD02_clave_guardada_con_hash_y_sal) ... ok
+test_BD03_registro_valida_y_persiste (test_servidor.PruebasBaseDeDatos.test_BD03_registro_valida_y_persiste) ... ok
+test_BD04_reserva_sin_cruces_en_la_base (test_servidor.PruebasBaseDeDatos.test_BD04_reserva_sin_cruces_en_la_base) ... ok
+test_BD05_cancelar_respeta_limite_y_libera (test_servidor.PruebasBaseDeDatos.test_BD05_cancelar_respeta_limite_y_libera) ... ok
+Ran 10 tests in 3.631s
+OK
